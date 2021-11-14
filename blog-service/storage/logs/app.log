@@ -1,0 +1,7 @@
+2021/09/19 10:12:38 {"callers":["/Users/zhangchun/Documents/study_cloud/blog-service/main.go: 33 main.init.0"],"level":"info","message":"eddycjy: my-blog-service/blog-service","time":1632017558932845000}
+2021/09/24 12:56:27 {"callers":["/Users/zhangchun/Documents/study_cloud/blog-service/main.go: 33 main.init.0"],"level":"error","message":"app.BindVaild errs: State必须是[0 1]中的一个","time":1632459387578936000}
+2021/09/24 12:57:03 {"callers":["/Users/zhangchun/Documents/study_cloud/blog-service/main.go: 33 main.init.0"],"level":"error","message":"app.BindVaild errs: State必须是[0 1]中的一个","time":1632459423403855000}
+2021/09/24 12:57:40 {"callers":["/Users/zhangchun/Documents/study_cloud/blog-service/main.go: 33 main.init.0"],"level":"error","message":"app.BindVaild errs: State必须是[0 1]中的一个","time":1632459460949348000}
+2021/09/24 12:59:26 {"callers":["/Users/zhangchun/Documents/study_cloud/blog-service/main.go: 33 main.init.0"],"level":"error","message":"app.BindVaild errs: State必须是[0 1]中的一个","time":1632459566019833000}
+2021/09/24 12:59:46 {"callers":["/Users/zhangchun/Documents/study_cloud/blog-service/main.go: 33 main.init.0"],"level":"error","message":"app.BindVaild errs: State必须是[0 1]中的一个","time":1632459586561991000}
+2021/09/30 23:57:27 {"callers":["/Users/zhangchun/Documents/study_cloud/blog-service/main.go: 33 main.init.0"],"level":"error","message":"svc.UploadFile err : open storage/uploads/668e8ad680f38e860a80cbb06dd703c3.jpeg: no such file or directory","time":1633017447113595000}
