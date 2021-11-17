@@ -26,7 +26,7 @@ func HelloSever(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 	ctx := context.Background()
-	ctx, cancel := context.WithCancel(ctx)
+	//ctx, cancel := context.WithCancel(ctx)
 	group, errCtx := errgroup.WithContext(ctx)
 	srv := &http.Server{Addr: ":8080"}
 
@@ -35,21 +35,21 @@ func main() {
 		go func() {
 			<-ctx.Done()
 			fmt.Println("http ctx done")
-			srv.Shutdown(context.TODO())
+			//srv.Shutdown(context.TODO())
+			srv.Shutdown(ctx)
 		}()
 		return StartHttpServer(srv)
 	})
 
-	signalChanel := make(chan os.Signal, 1)
-	signal.Notify(signalChanel, os.Interrupt, syscall.SIGTERM)
-
 	group.Go(func() error {
+		signalChanel := make(chan os.Signal, 1)
+		signal.Notify(signalChanel, os.Interrupt, syscall.SIGTERM)
 		for {
 			select {
 			case <-errCtx.Done():
 				return errCtx.Err()
 			case <-signalChanel:
-				cancel()
+				return nil
 			}
 		}
 
