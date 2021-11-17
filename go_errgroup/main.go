@@ -2,12 +2,14 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"golang.org/x/sync/errgroup"
 )
@@ -28,7 +30,7 @@ func main() {
 	ctx := context.Background()
 	//ctx, cancel := context.WithCancel(ctx)
 	group, errCtx := errgroup.WithContext(ctx)
-	srv := &http.Server{Addr: ":8080"}
+	srv := &http.Server{Addr: ":8888"}
 
 	group.Go(func() error {
 		fmt.Println("http")
@@ -53,6 +55,13 @@ func main() {
 			}
 		}
 
+	})
+
+	group.Go(func() error {
+		fmt.Println("inject")
+		time.Sleep(time.Second)
+		fmt.Println("inject finish")
+		return errors.New("inject error")
 	})
 
 	if err := group.Wait(); err != nil {
